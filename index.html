@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body{
+      background: linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    header{
+      width:100%;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background: rgba(0,0,0,0.5);
+      position:sticky;
+      top:0;
+    }
+    header h1{font-size:24px;letter-spacing:1px;}
+    nav a{
+      margin:0 10px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:500;
+      transition:color 0.3s;
+    }
+    nav a:hover{color:#ffd700;}
+
+    .hero{
+      text-align:center;
+      padding:80px 20px;
+    }
+    .hero h2{font-size:36px;margin-bottom:10px;}
+    .hero p{font-size:18px;color:#eee;}
+
+    .section{
+      width:90%;
+      max-width:1100px;
+      margin:50px auto;
+      background: rgba(255,255,255,0.1);
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    }
+    .section h3{margin-bottom:20px;font-size:26px;border-bottom:2px solid #ffd700;display:inline-block;}
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+    .card{
+      background:rgba(0,0,0,0.6);
+      padding:20px;
+      border-radius:10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 12px 24px rgba(0,0,0,0.6);
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .skill{
+      padding:10px 14px;
+      background:#ffd700;
+      color:#000;
+      font-weight:600;
+      border-radius:6px;
+    }
+
+    form{
+      display:grid;
+      gap:12px;
+    }
+    input,textarea{
+      padding:10px;
+      border-radius:6px;
+      border:none;
+      outline:none;
+    }
+    button{
+      padding:12px;
+      border:none;
+      background:#ffd700;
+      color:#000;
+      font-weight:bold;
+      border-radius:6px;
+      cursor:pointer;
+      transition:background 0.3s;
+    }
+    button:hover{background:#f0c000;}
+
+    footer{
+      text-align:center;
+      padding:20px;
+      margin-top:auto;
+      background:rgba(0,0,0,0.5);
+      width:100%;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 170px;
+      border-radius: 30%;
+      border: 4px solid #ffd700;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+    }
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Hello, I'm <span style="color:#ffd700">Vishakha Bhardwaj</span></h2>
+    <p>Aspiring Web Developer | Tech Enthusiast</p>
+  </section>
+    <section class="hero">
+    <img src="vishakha.jpeg" alt="My Profile Picture" class="profile-pic">
+   
+  </section>
+
+
+  <section id="about" class="section">
+    <h3>About Me</h3>
+    <p>I am a B.Tech student passionate about Web Development and MySQL. I love solving problems and building creative projects that make an impact.</p>
+  </section>
+
+  <section id="projects" class="section">
+    <h3>Projects</h3>
+    <div class="projects">
+      <div class="card">
+        <h4>Portfolio Website</h4>
+        <p>A responsive personal website showcasing my skills and work.</p>
+      </div>
+      <div class="card">
+        <h4>Mini CMS</h4>
+        <p>A content management system built with Node.js and Express.</p>
+      </div>
+      <div class="card">
+        <h4>Code Solutions</h4>
+        <p>A repository of C++ solutions for competitive programming problems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h3>Skills</h3>
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">C++</div>
+      <div class="skill">Node.js</div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h3>Contact</h3>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Vishakha Bhardwaj. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Thank you! Your message has been submitted.");
+    });
+  </script>
+</body>
+</html>
